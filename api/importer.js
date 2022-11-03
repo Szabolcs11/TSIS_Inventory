@@ -32,7 +32,8 @@ async function importData() {
       Note: res?.Primedba || "",
       Classroom: scres[0].id,
       Modifier: 1,
-      Date: getFullDate(),
+      AddedDate: getFullDate(),
+      ModifiedDate: getFullDate(),
     });
     await SqlInserter();
     console.log("Completed " + temp.length + "/" + data.length);

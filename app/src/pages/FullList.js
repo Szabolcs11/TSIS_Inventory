@@ -52,26 +52,14 @@ function FullList({ userdatas }) {
           {filteredItems.map((i) => {
             return (
               <div className="list_row" key={i.id}>
-                <div className="row_name">{i.Type}</div>
+                <div className="row_name">{i.id}</div>
                 <div className="row_id">{i.InventoryID}</div>
-                <div className="row_type">{i.Name}</div>
+                <div className="row_name">{i.Name}</div>
+                <div className="row_type">{i.Quantity}</div>
                 <div className="row_room">{i.Classroom}</div>
               </div>
             );
           })}
-          {/* <div className="list_row">
-            <div className="row_name">Asus</div>
-            <div className="row_id">TsIs115</div>
-            <div className="row_type">Monitor</div>
-            <div className="row_room">115</div>
-          </div>
-
-          <div className="list_row">
-            <div className="row_name">Acer</div>
-            <div className="row_id">R15</div>
-            <div className="row_type">Egér</div>
-            <div className="row_room">235</div>
-          </div> */}
         </div>
       </div>
     </div>

@@ -23,8 +23,7 @@ const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "tsis_inventory_comp",
-  // database: "tsis_inventory",
+  database: "tsis_inventory",
 });
 
 // connection.getConnection(function (err, connection) {
@@ -187,8 +186,7 @@ app.post("/getitems", (req, res) => {
       if (srerr) throw srerr;
       if (sres.length) {
         connection.query(
-          // "SELECT items.id, items.Name, items.InventoryID, items.Quantity, classrooms.Name as Classroom FROM items INNER JOIN classrooms WHERE classrooms.id=items.Classroom",
-          "SELECT items.id, items.Type, items.InventoryID, items.Name, classrooms.Name as Classroom FROM items INNER JOIN classrooms WHERE classrooms.id=items.Classroom",
+          "SELECT items.id, items.Name, items.InventoryID, items.Quantity, classrooms.Name as Classroom FROM items INNER JOIN classrooms WHERE classrooms.id=items.Classroom",
           function (sierr, sires) {
             if (sierr) throw sierr;
             if (sires.length) {
@@ -355,7 +353,7 @@ async function getRankIdByName(Name) {
     host: "localhost",
     user: "root",
     password: "",
-    database: "tsis_inventory_comp",
+    database: "tsis_inventory",
   });
 
   const [srres, sferr] = await contprom.execute("SELECT * FROM ranks");
@@ -376,7 +374,7 @@ async function getClassroomIdByName(Name) {
     host: "localhost",
     user: "root",
     password: "",
-    database: "tsis_inventory_comp",
+    database: "tsis_inventory",
   });
   const [scres, scerr] = await contprom.execute("SELECT * FROM classrooms WHERE Name=?", [Name]);
   if (scres.length) {
