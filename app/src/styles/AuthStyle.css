@@ -1,0 +1,848 @@
+/* :root {
+  --dark: #0078aa;
+}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+#root {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.bcgwrap {
+  top: 0;
+  height: 100%;
+  background-color: var(--dark);
+}
+.login-div {
+  position: absolute;
+  border-radius: 10px;
+  top: 50%;
+  left: 37.5%;
+  transform: translateY(-50%);
+  width: 25%;
+  background-color: #fff;
+  padding: 3%;
+  max-width: 600px;
+}
+.logo {
+  width: 50%;
+  height: 10%;
+  margin: 0 auto;
+  margin-bottom: 5%;
+  margin-top: -5%;
+}
+.logo img {
+  width: 100%;
+}
+.title {
+  text-align: center;
+  color: black;
+  font-weight: bolder;
+  font-size: 2rem;
+}
+.form {
+  width: 100%;
+  margin-top: 10%;
+}
+.form input {
+  font-size: 1.2rem;
+  padding: 5px 60px 5px 15px;
+  width: 80%;
+  border: none;
+  outline: none;
+  background: none;
+}
+#username {
+  width: 80%;
+}
+.username,
+.password {
+  display: flex;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 10px 0px 10px 15px;
+  margin: 15px 0;
+}
+.form svg {
+  height: 1.9rem;
+}
+button.signin-btn {
+  width: 100%;
+  padding: 1rem 1rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  background-color: var(--dark);
+  color: white;
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
+  transition: all 0.5s;
+}
+button.signin-btn:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1400px) {
+  .login-div {
+    left: 35%;
+    width: 35%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .login-div {
+    left: 30%;
+    width: 40%;
+  }
+} */
+
+:root {
+  --light: #3ab4f2;
+  --dark: #0078aa;
+  --yellow: #f2df3a;
+  --white: #f6f6f6;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+#root {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 78px;
+  background: var(--dark);
+  padding: 6px 14px;
+  transition: all 0.5s ease;
+  /* border-radius: 0 10px 10px 0; */
+}
+.sidebar.active {
+  width: 240px;
+  height: 100vh;
+}
+#logopicture {
+  height: 44px;
+  width: 44px;
+  margin-right: 10px;
+}
+.sidebar .logo_content .logo {
+  color: #fff;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease;
+  margin-top: 0px;
+}
+.sidebar.active .logo_content .logo {
+  opacity: 1;
+  pointer-events: none;
+}
+.logo_content .logo i {
+  font-size: 28px;
+  margin-right: 5px;
+}
+.logo_content .logo .logo_name {
+  font-size: 20px;
+  font-weight: 400;
+}
+.sidebar #btn {
+  position: absolute;
+  color: #fff;
+  left: 50%;
+  top: 6px;
+  font-size: 30px;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  transform: translate(-50%);
+  cursor: pointer;
+}
+#btn_hidden {
+  color: #fff;
+  left: 30px;
+  top: 0px;
+  font-size: 35px;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  transform: translate(-50%);
+  cursor: pointer;
+  position: absolute;
+  visibility: hidden;
+  z-index: 100;
+}
+
+.sidebar.active #btn {
+  left: 90%;
+}
+.sidebar ul {
+  margin-top: 20px;
+}
+.sidebar ul li {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin: 0 10px 0 -1px;
+  list-style: none;
+  line-height: 50px;
+}
+.selected {
+  background-color: var(--light);
+}
+.bx {
+  font-size: 1.5em;
+}
+.sidebar ul li .tooltip {
+  position: absolute;
+  left: 128px;
+  top: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 6px;
+  height: 35px;
+  width: 122px;
+  background: var(--white);
+  line-height: 35px;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: 0s;
+  opacity: 0;
+  pointer-events: none;
+  display: block;
+  z-index: 2;
+}
+.sidebar.active ul li .tooltip {
+  display: none;
+}
+.sidebar ul li:hover .tooltip {
+  transition: all 0.5s ease;
+  top: 50%;
+  opacity: 1;
+}
+.sidebar ul li a {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  border-radius: 12px;
+  white-space: nowrap;
+}
+.sidebar ul li a:hover {
+  background-color: var(--white);
+  color: var(--dark);
+}
+.sidebar ul li i {
+  height: 50px;
+  min-width: 50px;
+  border-radius: 12px;
+  line-height: 50px;
+  text-align: center;
+}
+.sidebar .links_name {
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease;
+}
+.sidebar.active .links_name {
+  opacity: 1;
+  pointer-events: auto;
+}
+.sidebar .profile_content {
+  position: absolute;
+  color: var(--white);
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.sidebar .profile_content .profile {
+  position: relative;
+  padding: 10px 6px;
+  height: 60px;
+  background: none;
+  transition: all 0.4s ease;
+}
+.sidebar.active .profile_content .profile {
+  background: var(--light);
+}
+.profile_content .profile .profile_details {
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.sidebar.active .profile .profile_details {
+  opacity: 1;
+  pointer-events: auto;
+}
+.profile .profile_details img {
+  height: 45px;
+  width: 45px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+#image_input {
+  position: absolute;
+  opacity: 0;
+  width: 75px;
+  border-radius: 12px;
+}
+.profile .profile_details .name_job {
+  margin-left: 10px;
+}
+.profile .profile_details .name {
+  font-size: 15px;
+  font-weight: 400;
+}
+.profile .profile_details .job {
+  font-size: 12px;
+}
+.profile #log_out {
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  transform: translateX(-50%);
+  min-width: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  background-color: var(--light);
+}
+.sidebar.active .profile #log_out {
+  left: 88%;
+}
+.sidebar.active .profile #log_out {
+  background-color: none;
+}
+.home_content {
+  z-index: 0;
+  position: absolute;
+  height: 100%;
+  width: calc(100% - 78px);
+  left: 78px;
+  transition: all 0.5s ease;
+  overflow-y: scroll;
+}
+.sidebar.active ~ .home_content {
+  width: calc(100%-240px);
+  left: 240px;
+}
+
+/* SIDEBAR END */
+
+.additemwrap {
+  background-color: var(--light);
+  width: 50%;
+  min-width: 380px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+}
+.wrap {
+  width: 70%;
+  margin-left: 15%;
+  margin-right: 15%;
+  height: auto;
+}
+.add_item_title {
+  font-size: 3em;
+  color: var(--dark);
+  font-weight: bold;
+  text-align: center;
+  padding-top: 70px;
+  margin-bottom: 60px;
+}
+
+.input_name {
+  width: 100%;
+  margin-top: 60px;
+  border-radius: 10px;
+  font-size: 1.5em;
+  padding: 10px;
+  border: NONE;
+  background-color: var(--white);
+}
+
+.new_line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.input_type {
+  width: 58%;
+  margin-top: 25px;
+  border-radius: 10px;
+  font-size: 1.4em;
+  padding: 10px;
+  background-color: var(--white);
+  border: NONE;
+}
+.room_picker {
+  width: 40%;
+  margin-top: 25px;
+  border-radius: 10px;
+  font-size: 1.3em;
+  padding: 10px;
+  border: NONE;
+  min-width: 230px;
+  background-color: var(--white);
+}
+
+.input_id {
+  width: 58%;
+  margin-top: 25px;
+  border-radius: 10px;
+  font-size: 1.4em;
+  padding: 10px;
+  border: NONE;
+  background-color: var(--white);
+}
+
+.input_extra {
+  width: 100%;
+  min-height: 100px;
+  margin-top: 25px;
+  border-radius: 10px;
+  font-size: 1.5em;
+  padding: 10px;
+  padding-bottom: 20%;
+  border: NONE;
+}
+
+.Date {
+  width: 40%;
+  margin-top: 25px;
+  border-radius: 10px;
+  font-size: 1.3em;
+  padding: 10px;
+  border: NONE;
+  min-width: 180px;
+  background-color: var(--white);
+}
+
+.btn_save {
+  text-align: center;
+  width: 100%;
+  background-color: var(--white);
+  margin-top: 25px;
+  border-radius: 10px;
+  font-size: 1.8em;
+  padding: 20px;
+  border: NONE;
+  transition: all 0.5s ease;
+}
+.btn_save:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+/* ADD ROOM */
+
+.input_room_id {
+  width: 100%;
+  margin-top: 60px;
+  border-radius: 10px;
+  font-size: 1.5em;
+  padding: 10px;
+  border: NONE;
+  background-color: var(--white);
+}
+.room_add_picker {
+  width: 100%;
+  margin-top: 25px;
+  border-radius: 10px;
+  font-size: 1.5em;
+  padding: 10px;
+  border: NONE;
+  background-color: var(--white);
+}
+
+.add_room_title {
+  font-size: 3em;
+  color: var(--dark);
+  font-weight: bold;
+  text-align: center;
+  padding-top: 70px;
+  margin-bottom: 50px;
+}
+.addroomwrap {
+  background-color: var(--light);
+  width: 50%;
+  min-width: 380px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+}
+
+/* lISTA */
+
+.line {
+  margin-top: 60px;
+  /* margin-left: 5%; */
+  width: 100%;
+  display: flex;
+  border-radius: 10px;
+}
+
+.search {
+  margin-top: 65px;
+  border-radius: 10px 0 0 10px;
+  width: 100%;
+  font-size: 1.5em;
+  padding: 10px;
+  border: none;
+}
+.bx-search-alt-2 {
+  font-size: 2.5em;
+  margin: 0;
+  margin-top: 65px;
+  padding-top: 5px;
+  color: var(--dark);
+  border-radius: 0 10px 10px 0;
+  background-color: white;
+}
+.bx-search-alt-2:hover {
+  cursor: pointer;
+}
+
+.newline {
+  margin-top: 20px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.room_picker_check {
+  width: 49%;
+  border-radius: 10px;
+  font-size: 1.3em;
+  padding: 10px;
+  border: none;
+  margin-bottom: 60px;
+  max-width: 49%;
+}
+
+.item_picker_check {
+  width: 49%;
+  border-radius: 10px;
+  font-size: 1.3em;
+  padding: 10px;
+  border: none;
+  margin-bottom: 60px;
+}
+.list_wrap2 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+.list_wrap {
+  background-color: var(--light);
+  width: 60%;
+  min-width: 380px;
+  padding-bottom: 10px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+}
+.list_row {
+  background-color: var(--white);
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: -40px;
+  font-size: 1.3em;
+  display: flex;
+  margin-bottom: 50px;
+  transition: all 0.5s;
+}
+.list_row:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.row_name {
+  width: 31%;
+}
+.row_id {
+  width: 31%;
+}
+.row_type {
+  width: 31%;
+}
+.row_room {
+  width: 10%;
+}
+
+/* LOGIN */
+
+.bcgwrap {
+  top: 0;
+  height: 100%;
+  background-color: var(--dark);
+}
+.login-div {
+  position: absolute;
+  border-radius: 10px;
+  top: 50%;
+  left: 37.5%;
+  transform: translateY(-50%);
+  width: 25%;
+  background-color: #fff;
+  padding: 3%;
+  max-width: 600px;
+}
+.logo {
+  width: 50%;
+  height: 10%;
+  margin: 0 auto;
+  margin-bottom: 5%;
+  margin-top: -5%;
+}
+.logo img {
+  width: 100%;
+}
+.title {
+  text-align: center;
+  color: black;
+  font-weight: bolder;
+  font-size: 2rem;
+}
+.form {
+  width: 100%;
+  margin-top: 10%;
+}
+.form input {
+  font-size: 1.2rem;
+  padding: 5px 60px 5px 15px;
+  width: 80%;
+  border: none;
+  outline: none;
+  background: none;
+}
+#username {
+  width: 80%;
+}
+.username,
+.password {
+  display: block;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 10px 0px 10px 5px;
+  margin: 15px 0;
+}
+.form svg {
+  height: 1.9rem;
+  margin-bottom: -5px;
+  margin-left: 10px;
+  margin-right: -5px;
+}
+button.signin-btn {
+  width: 100%;
+  padding: 1rem 1rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  background-color: var(--dark);
+  color: white;
+  margin-top: 0.2rem;
+  margin-bottom: 0.5rem;
+  transition: all 0.5s;
+}
+button.signin-btn:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1700px) {
+  .room_picker {
+    width: 100%;
+  }
+  .input_type {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .input_id {
+    width: 100%;
+  }
+  .Date {
+    width: 100%;
+  }
+
+  .login-div {
+    left: 35%;
+    width: 35%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .login-div {
+    left: 30%;
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .add_item_title {
+    font-size: 2em;
+  }
+
+  .add_room_title {
+    font-size: 2em;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .room_picker_check {
+    width: 100%;
+    max-width: 100%;
+  }
+  .item_picker_check {
+    width: 1000%;
+    margin-top: -40px;
+    max-width: 1000%;
+  }
+  .list_row {
+    font-size: 0.9em;
+  }
+  .newline {
+    font-size: 0.9em;
+  }
+  .line {
+    font-size: 0.9em;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .sidebar {
+    visibility: hidden;
+  }
+  .additemwrap {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    margin-top: 0;
+    border-radius: 0;
+    min-width: 100px;
+  }
+  .home_content {
+    width: 100%;
+    margin-left: -78px;
+  }
+  .addroomwrap {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    margin-top: 0;
+    border-radius: 0;
+    min-width: 100px;
+  }
+  .add_room_title {
+    color: var(--white);
+    margin-bottom: -20px;
+  }
+  .add_item_title {
+    color: var(--white);
+    margin-bottom: -20px;
+  }
+  .home_content {
+    background-color: var(--light);
+  }
+
+  #btn_hidden {
+    visibility: visible;
+  }
+  .bx .bx-menu .activee {
+    visibility: hidden;
+  }
+
+  .wrap {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .input_name {
+    padding: 5px;
+    font-size: 1.2em;
+  }
+  .input_type {
+    padding: 5px;
+    font-size: 1.2em;
+  }
+  .room_picker {
+    padding: 5px;
+    font-size: 1.2em;
+  }
+  .input_id {
+    padding: 5px;
+    font-size: 1.2em;
+  }
+  .Date {
+    padding: 5px;
+    font-size: 1.2em;
+  }
+  .input_extra {
+    font-size: 1.2em;
+  }
+  .btn_save {
+    font-size: 1.5em;
+    padding: 10px;
+  }
+  .sidebar.active {
+    visibility: visible;
+  }
+  .home_content.active {
+    width: 100%;
+    margin-left: 0px;
+  }
+  .list_row {
+    font-size: 0.8em;
+  }
+  .newline {
+    font-size: 0.8em;
+  }
+  .line {
+    margin-top: -20px;
+    font-size: 0.8em;
+  }
+}

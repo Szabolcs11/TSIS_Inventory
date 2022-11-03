@@ -1,0 +1,72 @@
+{
+  "Authentication_Error": {
+    "hu": "Hitelesítési hiba",
+    "en": "Authentication error",
+    "rs": "Greška pri autentifikaciji"
+  },
+  "Authentication_Failed": {
+    "hu": "Hitelesítés sikertelen",
+    "en": "Authentication failed",
+    "rs": "Autentifikacija nije uspela"
+  },
+  "Successfull_Authentication": {
+    "hu": "Sikeres hitelesítés",
+    "en": "Successfull authentication",
+    "rs": "Uspešna autentifikacija"
+  },
+  "Successfull_Logout": {
+    "hu": "Sikeres kijelentkezés",
+    "en": "Successfull logout",
+    "rs": "Uspešno odjavljivanje"
+  },
+  "Successfful_User_Deletion": {
+    "hu": "Sikeres felhasználó törlés",
+    "en": "Successfull user deletion",
+    "rs": "Uspešno brisanje korisnika"
+  },
+  "Cant_Delete_Yourself": {
+    "hu": "Nem törölheted magad",
+    "en": "You can't delete yourself",
+    "rs": "Ne možete obrisati sami sebe"
+  },
+  "Fill_The_Datas": {
+    "hu": "Kérjük, töltse ki az adatokat",
+    "en": "Please fill the datas",
+    "rs": "Molimo popunite podatke"
+  },
+  "No_User_Found_With_This_Username": {
+    "hu": "Nem található felhasználó ezzel a felhasználónevével",
+    "en": "No user found with this username",
+    "rs": "Nije pronađen korisnik sa ovim korisničkim imenom"
+  },
+  "Incorrect_Password": {
+    "hu": "Hibás jelszó",
+    "en": "Incorrect password",
+    "rs": "Pogrešna lozinka"
+  },
+  "Item_Already_Exist": {
+    "hu": "A termék már létezik",
+    "en": "Item already exist",
+    "rs": "Artikal već postoji"
+  },
+  "Successfull_Login": {
+    "hu": "Sikeres bejelentkezés",
+    "en": "Successfull login",
+    "rs": "Uspešno prijavljivanje"
+  },
+  "Succesffull_User_Creation": {
+    "hu": "Sikeres felhasználó létrehozás",
+    "en": "Successfull user creation",
+    "rs": "Uspešno kreiranje korisnika"
+  },
+  "Successfful_Class_room_Creation": {
+    "hu": "Sikeres tanterem létrehozás",
+    "en": "Successfull class room creation",
+    "rs": "Uspešno kreiranje učionice"
+  },
+  "Succesffull_Item_Creation": {
+    "hu": "Sikeres termék létrehozás",
+    "en": "Successfull item creation",
+    "rs": "Uspešno kreiranje artikla"
+  }
+}
