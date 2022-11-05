@@ -14,6 +14,7 @@ import UserList from "pages/UserList";
 import NewUser from "pages/NewUser";
 import Settings from "pages/Settings";
 import { ErrorNotification, SuccesNotification } from "./NotificationManager";
+import LoadingComponent from "components/LoadingComponent";
 
 export let authenticateUser;
 export let handleLogout;
@@ -61,8 +62,22 @@ function Router() {
         }
       });
   };
-
-  if (user) {
+  if (user == false) {
+    console.log("nincs user", user);
+    return <LoadingComponent type={"bubbles"} color={"#fff"} bgcolor={"#0078AA"} />;
+  } else if (user.length == 0) {
+    console.log("nincs user", user);
+    return (
+      <>
+        <Routes>
+          {/* <Route path="/" element={<Navigate to="/auth" />} /> */}
+          <Route path="/auth" element={<Auth />} />
+          {/* <Route path="*" element={<Navigate to="/auth" />} /> */}
+        </Routes>
+      </>
+    );
+  } else if (user) {
+    console.log("van user", user);
     return (
       <>
         <Routes>
@@ -79,17 +94,19 @@ function Router() {
         </Routes>
       </>
     );
-  } else if (user === undefined) {
-    return (
-      <>
-        <Routes>
-          <Route path="/" element={<Navigate to="/auth" />} />
-          <Route path="/auth" element={<Auth />} />
-          {/* <Route path="*" element={<Navigate to="/auth" />} /> */}
-        </Routes>
-      </>
-    );
   }
+  // else if (user === []) {
+  //   console.log("nincs user", user.length);
+  //   return (
+  //     <>
+  //       <Routes>
+  //         <Route path="/" element={<Navigate to="/auth" />} />
+  //         <Route path="/auth" element={<Auth />} />
+  //         {/* <Route path="*" element={<Navigate to="/auth" />} /> */}
+  //       </Routes>
+  //     </>
+  //   );
+  // }
 }
 
 export default Router;

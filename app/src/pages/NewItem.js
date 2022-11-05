@@ -8,7 +8,7 @@ function NewItem({ userdatas }) {
   const [itemDate, setItemDate] = useState(new Date().toISOString().split("T")[0]);
 
   const ItemName = useRef();
-  const ItemType = useRef();
+  const ItemQuantity = useRef();
   const ItemClassrom = useRef();
   const ItemIdentifier = useRef();
   const ItemDescription = useRef();
@@ -31,7 +31,7 @@ function NewItem({ userdatas }) {
         MyId: userdatas.id,
         Name: ItemName.current.value,
         Identifier: ItemIdentifier.current.value || "",
-        Type: ItemType.current.value,
+        Quantity: ItemQuantity.current.value,
         Classroom: ItemClassrom.current.value,
         Description: ItemDescription.current.value,
         Date: itemDate,
@@ -52,7 +52,7 @@ function NewItem({ userdatas }) {
         <div className="wrap">
           <input ref={ItemName} type="text" className="input_name" placeholder="Tárgy neve" />
           <div className="new_line">
-            <input ref={ItemType} type="text" className="input_type" placeholder="Tárgy fajtája" />
+            <input ref={ItemQuantity} type="number" className="input_type" placeholder="Darabszám" />
             <select ref={ItemClassrom} name="room" className="room_picker">
               {rooms.map((r) => {
                 return (
@@ -62,12 +62,6 @@ function NewItem({ userdatas }) {
                 );
               })}
             </select>
-            {/* <select name="room" className="room_picker">
-              <option value="notselected" selected disabled hidden>Válassza ki a termet</option>
-              <option value="room1">Tanári</option>
-              <option value="room2">Díszterem</option>
-              <option value="room3">115</option>
-            </select> */}
           </div>
           <div className="new_line">
             <input ref={ItemIdentifier} type="text" className="input_id" placeholder="Azonosító" />

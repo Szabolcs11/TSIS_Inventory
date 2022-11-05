@@ -1,3 +1,5 @@
 app/node_modules
 api/node_modules
+api/adduser.js
+api/email.js
 tsis_inventory.sql

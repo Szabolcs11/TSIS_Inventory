@@ -39,10 +39,30 @@
     "en": "No user found with this username",
     "rs": "Nije pronađen korisnik sa ovim korisničkim imenom"
   },
+  "Successfful_Password_Change": {
+    "hu": "Sikeres jelszóváltoztatás",
+    "en": "Successfull password change",
+    "rs": "Uspešna promena lozinke"
+  },
   "Incorrect_Password": {
     "hu": "Hibás jelszó",
     "en": "Incorrect password",
     "rs": "Pogrešna lozinka"
+  },
+  "Passwords_Do_Not_Match": {
+    "hu": "A jelszavak nem egyeznek",
+    "en": "Passwords doesn't match",
+    "rs": "Lozinke se ne poklapaju"
+  },
+  "Unexpected_Error": {
+    "hu": "Váratlan hiba",
+    "en": "Unexpected error",
+    "rs": "Neočekivana greška"
+  },
+  "No_Item_Found_With_This_Id": {
+    "hu": "Nem található elem ezzel az azonosítóval",
+    "en": "No item found with this id",
+    "rs": "Nije pronađen predmet sa ovim identifikatorom"
   },
   "Item_Already_Exist": {
     "hu": "A termék már létezik",

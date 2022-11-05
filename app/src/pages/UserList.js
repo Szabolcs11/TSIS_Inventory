@@ -1,4 +1,5 @@
 import axios from "axios";
+import LoadingComponent from "components/LoadingComponent";
 import { apiurl } from "config/globalVariables";
 import { SuccesNotification, WarningNotification } from "config/NotificationManager";
 import React, { useEffect, useState } from "react";
@@ -7,6 +8,8 @@ import style from "../styles/UserListStyle.css";
 function UserList({ userdatas }) {
   const [ranks, setRanks] = useState([]);
   const [users, setUsers] = useState([]);
+
+  const [isLoading, setIsLoading] = useState(true);
 
   const [filteredUsers, setFilteredUsers] = useState([]);
   const [searchText, setSearchText] = useState("");
@@ -24,6 +27,7 @@ function UserList({ userdatas }) {
           setRanks(res.data.ranks);
           setUsers(res.data.users);
           setFilteredUsers(res.data.users);
+          setIsLoading(false);
         }
       });
   }, []);
@@ -58,6 +62,10 @@ function UserList({ userdatas }) {
         });
     }
   };
+
+  if (isLoading) {
+    return <LoadingComponent bgcolor={"#fff"} color={"#0078AA"} type={"bubbles"} />;
+  }
 
   return (
     <div className="home_content">

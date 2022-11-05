@@ -551,13 +551,15 @@ button.signin-btn:hover {
 }
 
 .room_picker_check {
-  width: 49%;
+  /* width: 49%; */
+  width: 100%; /* Szaby */
   border-radius: 10px;
   font-size: 1.3em;
   padding: 10px;
   border: none;
   margin-bottom: 60px;
-  max-width: 49%;
+  /* max-width: 49%; */
+  max-width: "100%"; /* Szaby */
 }
 
 .item_picker_check {
