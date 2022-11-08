@@ -1,4 +1,4 @@
-import { apiurl } from "config/globalVariables";
+import { apiurl, defaultlanguague } from "config/globalVariables";
 import React, { useState } from "react";
 import logo from "../assets/Images/logo.png";
 import { routes } from "config/Routes";
@@ -6,10 +6,26 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ErrorNotification, SuccesNotification } from "config/NotificationManager";
 import { handleLogout } from "config/Router";
+import HUNFlag from "./../assets/Images/HungarianFlag.png";
+import ENGFlag from "./../assets/Images/EnglistFlag.jpg";
+import RSFlag from "./../assets/Images/SerbianFlag.jpg";
+
+import { useCookies } from "react-cookie";
 
 function Navbar({ userdatas }) {
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(true);
   const navigate = useNavigate();
+
+  const [cookies, setCookie] = useCookies();
+
+  const [language, setLanguague] = useState(cookies.lang || defaultlanguague);
+
+  const changeLang = (lang) => {
+    if (lang === "hu" || lang === "en" || lang === "rs") {
+      setCookie("lang", lang);
+      setLanguague(lang);
+    }
+  };
 
   return (
     <>
@@ -28,13 +44,18 @@ function Navbar({ userdatas }) {
               <li style={{ cursor: "pointer" }} key={r.url} onClick={() => navigate(r.url)}>
                 <a className={r.url === window.location.pathname ? "selected" : ""}>
                   <i className={"bx " + r.icon}></i>
-                  <span className="links_name">{r.name}</span>
+                  <span className="links_name">{r.name[language]}</span>
                 </a>
-                <span className="tooltip">{r.name}</span>
+                <span className="tooltip">{r.name[language]}</span>
               </li>
             );
           })}
         </ul>
+        <div className="language">
+          <img onClick={() => changeLang("hu")} src={HUNFlag} alt="HungarianFlag" className="Flag" id="Magyar" />
+          <img onClick={() => changeLang("en")} src={ENGFlag} alt="EnglishFlag" className="Flag" />
+          <img onClick={() => changeLang("rs")} src={RSFlag} alt="SerbianFlag" className="Flag" id="Szerb" />
+        </div>
         <div className="profile_content">
           <div className="profile">
             <div className="profile_details">
@@ -49,6 +70,7 @@ function Navbar({ userdatas }) {
             <i onClick={() => handleLogout()} className="bx bx-log-out" id="log_out"></i>
           </div>
         </div>
+        {/* {translation.SettingsLabel[language]} */}
       </div>
     </>
   );

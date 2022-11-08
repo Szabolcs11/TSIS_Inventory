@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import Auth from "../pages/Auth/Auth";
-import { apiurl } from "./globalVariables";
+import { apiurl, defaultlanguague } from "./globalVariables";
 import Home from "pages/Home";
 import MainLayout from "./MainLayout";
 import News from "pages/News";
@@ -22,18 +22,22 @@ export let handleLogout;
 function Router() {
   const [user, setUser] = useState(false);
   const [cookies, removeCookie] = useCookies();
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
+  const [languague, setLanguague] = useState(cookies.lang || defaultlanguague);
 
   useEffect(() => {
     authenticateUser();
   }, []);
 
   handleLogout = () => {
+    setIsLoading(true);
     console.log(user);
     axios
       .post(apiurl + "handleLogout", {
         myid: user.id,
         sessiontoken: user.sessiontoken,
+        lang: languague,
       })
       .then((res) => {
         if (res.data.success) {
@@ -57,27 +61,26 @@ function Router() {
         if (res.data.success) {
           setUser(res.data.user);
           navigate("/");
+          setIsLoading(false);
         } else {
           setUser([]);
+          setIsLoading(false);
         }
       });
   };
-  if (user == false) {
-    console.log("nincs user", user);
+  if (isLoading) {
     return <LoadingComponent type={"bubbles"} color={"#fff"} bgcolor={"#0078AA"} />;
   } else if (user.length == 0) {
-    console.log("nincs user", user);
     return (
       <>
         <Routes>
-          {/* <Route path="/" element={<Navigate to="/auth" />} /> */}
+          <Route path="/" element={<Navigate to="/auth" />} />
           <Route path="/auth" element={<Auth />} />
-          {/* <Route path="*" element={<Navigate to="/auth" />} /> */}
+          <Route path="*" element={<Navigate to="/auth" />} />
         </Routes>
       </>
     );
   } else if (user) {
-    console.log("van user", user);
     return (
       <>
         <Routes>
