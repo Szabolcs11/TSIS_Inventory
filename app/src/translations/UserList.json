@@ -1,0 +1,37 @@
+{
+  "Search": {
+    "en": "Search",
+    "rs": "Pretraga",
+    "hu": "Keresés"
+  },
+  "All": {
+    "hu": "Összes",
+    "rs": "Sve",
+    "en": "All"
+  },
+  "TableFullName": {
+    "en": "Full Name",
+    "rs": "Ime i prezime",
+    "hu": "Teljes név"
+  },
+  "TableRank": {
+    "hu": "Beosztás",
+    "rs": "Rang",
+    "en": "Rank"
+  },
+  "DeleteUserLabel": {
+    "en": "Are you sure you want to delete the following user?",
+    "rs": "Da li ste sigurni da želite da obrišete sledećeg korisnika?",
+    "hu": "Biztosan törölni szeretné a következő felhasználót?"
+  },
+  "DeleteUserButton": {
+    "en": "Delete",
+    "rs": "Obriši",
+    "hu": "Törlés"
+  },
+  "CancelButton": {
+    "en": "Cancel",
+    "rs": "Otkaži",
+    "hu": "Mégse"
+  }
+}

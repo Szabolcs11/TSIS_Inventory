@@ -1,0 +1,67 @@
+{
+  "TwoFactorLogin": {
+    "hu": "Kétlépcsős bejelentkezés",
+    "en": "Two-factor authentication",
+    "rs": "Dvofaktorska autentifikacija"
+  },
+  "PasswordChange": {
+    "hu": "Jelszó módosítása",
+    "en": "Change password",
+    "rs": "Promena lozinke"
+  },
+  "CurrentPassword": {
+    "hu": "Jelenlegi jelszó",
+    "en": "Current password",
+    "rs": "Trenutna lozinka"
+  },
+  "NewPassword": {
+    "hu": "Új jelszó",
+    "en": "New password",
+    "rs": "Nova lozinka"
+  },
+  "NewPasswordAgain": {
+    "hu": "Új jelszó újra",
+    "en": "New password again",
+    "rs": "Nova lozinka ponovo"
+  },
+  "SavePassword": {
+    "hu": "Jelszó mentése",
+    "en": "Save password",
+    "rs": "Sacuvaj lozinku"
+  },
+  "EnableTwoFactorAuthentication": {
+    "hu": "Két faktoros bejelntkezés bekapcsolása",
+    "en": "Enable two-factor authentication",
+    "rs": "Ukljuci dvofaktorsku autentifikaciju"
+  },
+  "DisableTwoFactorAuthentication": {
+    "hu": "Két faktoros bejelntkezés kikapcsolása",
+    "en": "Disable two-factor authentication",
+    "rs": "Iskljuci dvofaktorsku autentifikaciju"
+  },
+  "EnterTheCurrentCode": {
+    "hu": "Add meg a jelenlegi kódot",
+    "en": "Enter the current code",
+    "rs": "Unesi trenutni kod"
+  },
+  "Disable": {
+    "hu": "Kikapcsolás",
+    "en": "Disable",
+    "rs": "Iskljuci"
+  },
+  "EnterTheCode": {
+    "hu": "Írja be a kódot",
+    "en": "Enter the code",
+    "rs": "Unesite kod"
+  },
+  "Set": {
+    "hu": "Beállít",
+    "en": "Set",
+    "rs": "Postavi"
+  },
+  "Cancel": {
+    "hu": "Mégse",
+    "en": "Cancel",
+    "rs": "Otkaži"
+  }
+}

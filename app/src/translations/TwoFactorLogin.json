@@ -1,0 +1,37 @@
+{
+  "TwoFactorLogin": {
+    "hu": "Kétlépcsős bejelentkezés",
+    "en": "Two-factor authentication",
+    "rs": "Dvofaktorska autentifikacija"
+  },
+  "EnterTheGoogleAuthenticatorCode": {
+    "hu": "Írja be a Google Autenticatorban megkapott kódot!",
+    "en": "Enter the code you received from Google Authenticator!",
+    "rs": "Unesite kod koji ste dobili iz Google Authenticator!"
+  },
+  "EnterThe": {
+    "hu": "Írja be a",
+    "en": "Enter the",
+    "rs": "Unesite"
+  },
+  "GoogleAuthenticator": {
+    "hu": "Google Autenticatorban",
+    "en": "Google Authenticator",
+    "rs": "Google Authenticator"
+  },
+  "RecivedCode": {
+    "hu": "Megkapott kódot!",
+    "en": "Received code!",
+    "rs": "Dobijeni kod!"
+  },
+  "EnterTheCode": {
+    "hu": "Jrja be a kódot",
+    "en": "Enter the code",
+    "rs": "Unesite kod"
+  },
+  "Login": {
+    "hu": "Belépés",
+    "en": "Login",
+    "rs": "Prijavite se"
+  }
+}

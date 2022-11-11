@@ -22,13 +22,18 @@ function FullList({ userdatas }) {
   const [lang, setLang] = useState(cookies.lang || defaultlanguague);
 
   useEffect(() => {
-    setLang(cookies.lang || defaultlanguague);
+    if (cookies.lang === "en" || cookies.lang === "hu" || cookies.lang === "rs") {
+      setLang(cookies.lang || defaultlanguague);
+    } else {
+      setLang(defaultlanguague);
+    }
   }, [cookies.lang]);
 
   useEffect(() => {
     axios
       .post(apiurl + "getitems", {
         MyId: userdatas.id,
+        lang: lang,
       })
       .then((res) => {
         if (res.data.success) {

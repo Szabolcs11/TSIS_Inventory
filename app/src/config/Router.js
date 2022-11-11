@@ -15,13 +15,15 @@ import NewUser from "pages/NewUser";
 import Settings from "pages/Settings";
 import { ErrorNotification, SuccesNotification } from "./NotificationManager";
 import LoadingComponent from "components/LoadingComponent";
+import VerifyTwoFa from "pages/VerifyTwoFa";
+import AuthenticateTwoFa from "pages/Auth/AuthenticateTwoFa";
 
 export let authenticateUser;
 export let handleLogout;
 
 function Router() {
   const [user, setUser] = useState(false);
-  const [cookies, removeCookie] = useCookies();
+  const [cookies, setCookie, removeCookie] = useCookies();
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const [languague, setLanguague] = useState(cookies.lang || defaultlanguague);
@@ -30,7 +32,7 @@ function Router() {
     authenticateUser();
   }, []);
 
-  handleLogout = () => {
+  handleLogout = (displaynotification) => {
     setIsLoading(true);
     console.log(user);
     axios
@@ -41,7 +43,9 @@ function Router() {
       })
       .then((res) => {
         if (res.data.success) {
-          SuccesNotification("", res.data.message);
+          if (displaynotification) {
+            SuccesNotification("", res.data.message);
+          }
           removeCookie("SessionToken");
           console.log("removecookie");
           console.log(cookies.SessionToken);
@@ -52,15 +56,18 @@ function Router() {
       });
   };
 
-  authenticateUser = (sessiontoken) => {
+  authenticateUser = (sessiontoken, nav) => {
     axios
       .post(apiurl + "authenticate", {
         SessionToken: sessiontoken ? sessiontoken : cookies.SessionToken || "",
+        lang: languague,
       })
       .then((res) => {
         if (res.data.success) {
           setUser(res.data.user);
-          navigate("/");
+          if (nav) {
+            navigate("/");
+          }
           setIsLoading(false);
         } else {
           setUser([]);
@@ -76,6 +83,7 @@ function Router() {
         <Routes>
           <Route path="/" element={<Navigate to="/auth" />} />
           <Route path="/auth" element={<Auth />} />
+          <Route path="/authenticate/:token" element={<AuthenticateTwoFa />} />
           <Route path="*" element={<Navigate to="/auth" />} />
         </Routes>
       </>
@@ -92,12 +100,31 @@ function Router() {
             <Route exact path="/newclassroom" element={<NewClassroom />} />
             <Route exact path="/userslist" element={<UserList userdatas={user} />} />
             <Route exact path="/newuser" element={<NewUser />} />
-            <Route exact path="/settings" element={<Settings />} />
+            <Route exact path="/settings" element={<Settings userdatas={user} />} />
           </Route>
         </Routes>
       </>
     );
   }
+
+  // return (
+  //   <Routes>
+  //     {/* <Route path="/" element={<Navigate to="/auth" />} /> */}
+  //     {/* <Route path="*" element={<Navigate to="/auth" />} /> */}
+  //     {/* <Route element={<MainLayout userdatas={user} />}> */}
+  //     <Route path="/auth" element={<Auth />} />
+  //     <Route path="/" element={<Home />} />
+  //     <Route path="/authenticate/:token" element={<AuthenticateTwoFa />} />
+  //     <Route path="/news" element={<News />} />
+  //     <Route path="/list" element={<FullList userdatas={user} />} />
+  //     <Route path="/newitem" element={<NewItem userdatas={user} />} />
+  //     <Route path="/newclassroom" element={<NewClassroom />} />
+  //     <Route path="/userslist" element={<UserList userdatas={user} />} />
+  //     <Route path="/newuser" element={<NewUser />} />
+  //     <Route path="/settings" element={<Settings userdatas={user} />} />
+  //     {/* </Route> */}
+  //   </Routes>
+  // );
   // else if (user === []) {
   //   console.log("nincs user", user.length);
   //   return (

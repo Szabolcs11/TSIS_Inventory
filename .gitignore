@@ -1,5 +1,9 @@
-app/node_modules
 api/node_modules
+# api/public/UsersAvatar
+api/public/UsersAvatar - Copy
 api/adduser.js
 api/email.js
-tsis_inventory.sql
+
+app/node_modules
+app/build
+Tests

@@ -1,5 +1,5 @@
 import { apiurl, defaultlanguague } from "config/globalVariables";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import logo from "../assets/Images/logo.png";
 import { routes } from "config/Routes";
 import { useNavigate } from "react-router-dom";
@@ -12,6 +12,8 @@ import RSFlag from "./../assets/Images/SerbianFlag.jpg";
 
 import { useCookies } from "react-cookie";
 
+export let changeavatar;
+
 function Navbar({ userdatas }) {
   const [toggle, setToggle] = useState(true);
   const navigate = useNavigate();
@@ -22,9 +24,15 @@ function Navbar({ userdatas }) {
 
   const changeLang = (lang) => {
     if (lang === "hu" || lang === "en" || lang === "rs") {
-      setCookie("lang", lang);
+      // setCookie("lang", lang);
+      setCookie("lang", lang, { maxAge: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7) });
       setLanguague(lang);
     }
+  };
+
+  const AvatarRef = useRef();
+  changeavatar = (imgname) => {
+    AvatarRef.current.src = apiurl + "UsersAvatar/" + imgname;
   };
 
   return (
@@ -60,14 +68,14 @@ function Navbar({ userdatas }) {
           <div className="profile">
             <div className="profile_details">
               {/* <img src="./img/profile.png" id="profile_pic" alt="NoImgFound" /> */}
-              <img src={apiurl + "UsersAvatar/" + userdatas.AvatarURL} id="profile_pic" alt="NoImgFound" />
+              <img ref={AvatarRef} src={apiurl + "UsersAvatar/" + userdatas.AvatarURL} id="profile_pic" alt="NoImgFound" />
               <div className="name_job">
                 <input type="file" id="image_input" />
-                <div className="name">Tóth Zsolt</div>
-                <div className="job">Admin</div>
+                <div className="name">{userdatas.FullName}</div>
+                <div className="job">{userdatas.RankName}</div>
               </div>
             </div>
-            <i onClick={() => handleLogout()} className="bx bx-log-out" id="log_out"></i>
+            <i onClick={() => handleLogout(true)} className="bx bx-log-out" id="log_out"></i>
           </div>
         </div>
         {/* {translation.SettingsLabel[language]} */}

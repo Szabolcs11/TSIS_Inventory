@@ -1,0 +1,22 @@
+{
+  "NewClassroomTitle": {
+    "en": "New Classroom",
+    "hu": "Új Tanterem",
+    "rs": "Novi Učionica"
+  },
+  "ClassroomIdentity": {
+    "hu": "Tanterem azonosítója",
+    "en": "Classroom Identity",
+    "rs": "Identitet Učionice"
+  },
+  "Description": {
+    "hu": "Leírás",
+    "en": "Description",
+    "rs": "Opis"
+  },
+  "Save": {
+    "hu": "Mentés",
+    "en": "Save",
+    "rs": "Sačuvaj"
+  }
+}

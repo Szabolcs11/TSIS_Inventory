@@ -1,0 +1,32 @@
+{
+  "AddNewUser": {
+    "hu": "Új felhasználó hozzáadása",
+    "en": "Add new user",
+    "rs": "Dodaj novog korisnika"
+  },
+  "Username": {
+    "hu": "Felhasználónév",
+    "en": "Username",
+    "rs": "Korisničko ime"
+  },
+  "FirstNameAndSurname": {
+    "hu": "Keresztnév és vezetéknév",
+    "en": "First name and Surname",
+    "rs": "Ime i prezime"
+  },
+  "EmailAddress": {
+    "hu": "E-mail cím",
+    "en": "Email address",
+    "rs": "E-mail adresa"
+  },
+  "Password": {
+    "hu": "Jelszó",
+    "en": "Password",
+    "rs": "Lozinka"
+  },
+  "Save": {
+    "hu": "Mentés",
+    "en": "Save",
+    "rs": "Sacuvaj"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "NewItemTitle": {
+    "en": "Add new item",
+    "hu": "Új tárgy hozzáadása",
+    "rs": "Dodaj novu stavku"
+  },
+  "Name": {
+    "en": "Name of the item",
+    "hu": "Tárgy neve",
+    "rs": "Ime stavke"
+  },
+  "Quantity": {
+    "en": "Quantity of the item",
+    "hu": "Tárgy mennyisége",
+    "rs": "Količina stavke"
+  },
+  "Identity": {
+    "en": "Identity of the item",
+    "hu": "Tárgy azonosítója",
+    "rs": "Identitet stavke"
+  },
+  "Description": {
+    "en": "Description of the item",
+    "hu": "Tárgy leírása",
+    "rs": "Opis stavke"
+  },
+  "Save": {
+    "en": "Save",
+    "hu": "Mentés",
+    "rs": "Sačuvaj"
+  }
+}

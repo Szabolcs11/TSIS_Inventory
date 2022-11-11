@@ -188,18 +188,21 @@ button.signin-btn:hover {
   cursor: pointer;
 }
 #btn_hidden {
-  color: #fff;
-  left: 30px;
-  top: 0px;
+  background-color: white;
+  color: var(--dark);
+  left: 20px;
+  top: 10px;
   font-size: 35px;
   height: 50px;
   width: 50px;
+  padding: 0 10px 10px 10px;
   line-height: 50px;
   transform: translate(-50%);
   cursor: pointer;
   position: absolute;
   visibility: hidden;
   z-index: 100;
+  border-radius: 0 15px 15px 0;
 }
 
 .sidebar.active #btn {

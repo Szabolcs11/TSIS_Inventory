@@ -1,9 +1,11 @@
 import axios from "axios";
 import LoadingComponent from "components/LoadingComponent";
-import { apiurl } from "config/globalVariables";
+import { apiurl, defaultlanguague } from "config/globalVariables";
 import { SuccesNotification, WarningNotification } from "config/NotificationManager";
 import React, { useEffect, useState } from "react";
 import style from "../styles/UserListStyle.css";
+import { useCookies } from "react-cookie";
+import translation from "./../translations/UserList.json";
 
 function UserList({ userdatas }) {
   const [ranks, setRanks] = useState([]);
@@ -17,10 +19,22 @@ function UserList({ userdatas }) {
 
   const [selectedPlayer, setSelectedPlayer] = useState();
 
+  const [cookies, setCookie] = useCookies();
+  const [lang, setLang] = useState(cookies.lang || defaultlanguague);
+
+  useEffect(() => {
+    if (cookies.lang === "en" || cookies.lang === "hu" || cookies.lang === "rs") {
+      setLang(cookies.lang || defaultlanguague);
+    } else {
+      setLang(defaultlanguague);
+    }
+  }, [cookies.lang]);
+
   useEffect(() => {
     axios
       .post(apiurl + "getusers", {
         MyId: userdatas.id,
+        lang: lang,
       })
       .then((res) => {
         if (res.data.success) {
@@ -33,11 +47,11 @@ function UserList({ userdatas }) {
   }, []);
 
   useEffect(() => {
-    if ((searchText == "" || searchText == " ") && rankFilter == "Összes") {
+    if ((searchText == "" || searchText == " ") && rankFilter == translation.All[lang]) {
       setFilteredUsers(users);
     } else {
       const temp = users.filter((e) => e?.FullName?.toLowerCase().includes(searchText?.toLowerCase()));
-      setFilteredUsers(rankFilter != "Összes" ? temp.filter((e) => e?.Rank?.includes(rankFilter)) : temp);
+      setFilteredUsers(rankFilter != translation.All[lang] ? temp.filter((e) => e?.Rank?.includes(rankFilter)) : temp);
     }
   }, [searchText, rankFilter]);
 
@@ -48,6 +62,7 @@ function UserList({ userdatas }) {
         .post(apiurl + "handledeleteuser", {
           targetid: uid,
           myid: userdatas.id,
+          lang: lang,
         })
         .then((res) => {
           setSelectedPlayer(null);
@@ -73,11 +88,13 @@ function UserList({ userdatas }) {
         <div className="list_wrap2">
           <div className="line" id="searchline">
             <div className="searchbar">
-              <input onChange={(e) => setSearchText(e.target.value)} type="text" className="search" placeholder="Keresés" />
+              <input onChange={(e) => setSearchText(e.target.value)} type="text" className="search" placeholder={translation.Search[lang]} />
+              {/* <input onChange={(e) => setSearchText(e.target.value)} type="text" className="search" placeholder="Keresés" /> */}
               <i className="bx bx-search-alt-2"></i>
             </div>
             <select onChange={(e) => setRankFilter(e.target.value)} name="room" className="rank">
-              <option value="Összes">Összes</option>
+              <option value="Összes">{translation.All[lang]}</option>
+              {/* <option value="Összes">{translation.All[lang]}</option> */}
               {ranks.map((r) => {
                 return (
                   <option key={r.id} value={r.Name}>
@@ -90,8 +107,10 @@ function UserList({ userdatas }) {
 
           <div className="list_row" id="first">
             <div className="row_room">ID</div>
-            <div className="row_name">Teljes név</div>
-            <div className="row_type">Beosztás</div>
+            <div className="row_name">{translation.TableFullName[lang]}</div>
+            {/* <div className="row_name">Teljes név</div> */}
+            <div className="row_type">{translation.TableRank[lang]}</div>
+            {/* <div className="row_type">Beosztás</div> */}
             <div className="row_del"></div>
           </div>
 
@@ -111,14 +130,15 @@ function UserList({ userdatas }) {
         {selectedPlayer && (
           <div className="ontop">
             <div className="popout">
-              <div className="sure">Biztos szeretné törölni a következő felhasználót?</div>
+              <div className="sure">{translation.DeleteUserLabel[lang]}</div>
+              {/* <div className="sure">Biztos szeretné törölni a következő felhasználót?</div> */}
               <div className="delete_name">{selectedPlayer.FullName}</div>
               <div className="buttons">
                 <div className="delete" onClick={() => handleDeleteUser(selectedPlayer.id)}>
-                  Törlés
+                  {translation.DeleteUserButton[lang]}
                 </div>
                 <div className="not_delete" onClick={() => setSelectedPlayer(null)}>
-                  Mégsem
+                  {translation.CancelButton[lang]}
                 </div>
               </div>
             </div>

@@ -64,6 +64,26 @@
     "en": "No item found with this id",
     "rs": "Nije pronađen predmet sa ovim identifikatorom"
   },
+  "Invalied_Email": {
+    "hu": "Érvénytelen email cím",
+    "en": "Invalied email",
+    "rs": "Neispravna email adresa"
+  },
+  "Ivalid_Code": {
+    "hu": "Érvénytelen kód",
+    "en": "Invalied code",
+    "rs": "Neispravan kod"
+  },
+  "You_Successfully_Turned_On_2FA": {
+    "hu": "Sikeresen bekapcsoltad a 2Faktoros megerősítést",
+    "en": "You successfully turned on 2FA",
+    "rs": "Uspešno ste uključili 2FA"
+  },
+  "You_Successfully_Turned_Off_2FA": {
+    "hu": "Sikeresen kikapcsoltad a 2Faktoros megerősítést",
+    "en": "You successfully turned off 2FA",
+    "rs": "Uspešno ste isključili 2FA"
+  },
   "Item_Already_Exist": {
     "hu": "A termék már létezik",
     "en": "Item already exist",
@@ -88,5 +108,10 @@
     "hu": "Sikeres termék létrehozás",
     "en": "Successfull item creation",
     "rs": "Uspešno kreiranje artikla"
+  },
+  "Successfful_Avatar_Change": {
+    "hu": "Sikeres avatar változtatás",
+    "en": "Successfull avatar change",
+    "rs": "Uspešna promena avatara"
   }
 }

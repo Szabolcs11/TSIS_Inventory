@@ -29,9 +29,13 @@ function Auth() {
       })
       .then((res) => {
         if (res.data.success) {
-          SuccesNotification("", res.data.message);
-          setCookie("SessionToken", res.data.sessiontoken);
-          authenticateUser(res.data.sessiontoken);
+          if (res.data.twofalogintoken) {
+            navigate("/authenticate/" + res.data.twofalogintoken);
+          } else {
+            SuccesNotification("", res.data.message);
+            setCookie("SessionToken", res.data.sessiontoken, { maxAge: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7) });
+            authenticateUser(res.data.sessiontoken, true);
+          }
         } else {
           ErrorNotification("", res.data.message);
         }
